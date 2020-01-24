@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
 
   Posts.findById(id)
   .then(post => {
-    if (!post) {
+    if (post.length === 0) {
       res.status(404).json({ message: "The post with the specified ID does not exist." })
     } else {
       console.log(req.params)
